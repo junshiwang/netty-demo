@@ -1,6 +1,5 @@
 package time;
 
-import echo.EchoServerHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -43,7 +42,7 @@ public class TimeServer {
                             if (sslCtx != null) {
                                 p.addLast(sslCtx.newHandler(ch.alloc()));
                             }
-                            p.addLast(new TimeEncoder(), new TestActiveHandler(), new TimeServerHandler());
+                            p.addLast(new TimeEncoder(), new LoggerHandler(), new TimeServerHandler());
                         }
                     });
 
