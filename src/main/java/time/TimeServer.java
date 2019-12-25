@@ -42,7 +42,7 @@ public class TimeServer {
                             if (sslCtx != null) {
                                 p.addLast(sslCtx.newHandler(ch.alloc()));
                             }
-                            p.addLast(new TimeEncoder(), new LoggerHandler(), new TimeServerHandler());
+                            p.addLast(new TimeEncoder(), new ConnectHandler(), new LoggerHandler(), new TimeServerHandler());
                         }
                     });
 
